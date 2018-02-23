@@ -60,7 +60,7 @@ public class CameraActivity extends AppCompatActivity {
         setContentView(R.layout.activity_camera);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         //setting the title
-        toolbar.setTitle("Unicorn");
+        toolbar.setTitle("Face Epicness");
         //placing toolbar in place of actionbar
         setSupportActionBar(toolbar);
 
@@ -98,6 +98,7 @@ public class CameraActivity extends AppCompatActivity {
                 FirebaseAuth.getInstance().signOut();
                 Intent intent = new Intent(CameraActivity.this, MainActivity.class);
                 startActivity(intent);
+                finish();
                 break;
 
         }
@@ -168,12 +169,12 @@ public class CameraActivity extends AppCompatActivity {
                 mDetails = (TextView) findViewById(R.id.details);
                 mDetails.setText(response.substring(30));
 
-                myRef = database.getReference("/Users/" + "User_02" + "/PictureData/" + key);
+                myRef = database.getReference("/Users/" + "User_01" + "/PictureData/" + key);
                 myRef.setValue(response);
 
                 mEmailField = (EditText) findViewById(R.id.EmailField);
                 String email = mEmailField.getText().toString();
-                myRef = database.getReference("/Users/" + "User_02" + "/Email");
+                myRef = database.getReference("/Users/" + "User_01" + "/Email");
                 myRef.setValue(email);
             }
 
