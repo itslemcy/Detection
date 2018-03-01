@@ -167,7 +167,7 @@ public class CameraActivity extends AppCompatActivity {
             public void onSuccess(String response) {
                 Log.d("KAIROS:", response);
                 mDetails = (TextView) findViewById(R.id.details);
-                mDetails.setText(response.substring(30));
+                mDetails.setText(response);
 
                 myRef = database.getReference("/Users/" + "User_01" + "/PictureData/" + key);
                 myRef.setValue(response);
